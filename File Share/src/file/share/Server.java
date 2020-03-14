@@ -8,6 +8,7 @@ public class Server {
     public static void main(String[] args) {
         File f = new File("G:\\Pukimans.zip");
         if(!f.isDirectory()) {
+            /**   This is for a single file transfer   ***/
             try {
                 FileInputStream fs = new FileInputStream(f);
                 BufferedInputStream finput = new BufferedInputStream(fs);
@@ -42,6 +43,7 @@ public class Server {
                 e.printStackTrace();
             }
         }else {
+            /**   This is for a multifle file transfer   ***/
             try {
                 File[] dir = f.listFiles();
                 long dirSize = dirSize(dir);
@@ -74,6 +76,9 @@ public class Server {
                     fs.close();
                 }
                 System.out.println("Total Sent: "+totalSize);
+                sendData.close();
+                temp.close();
+                s.close();
             }catch(SocketException e) {
                 System.err.println("Failed to Send. Check Internet Connection.");
             }catch(Exception e) {
