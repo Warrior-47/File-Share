@@ -100,10 +100,4 @@ public class Client {
         
         
     }
-    
-    public static int min(int x, long y) {
-        if(x<y)
-            return x;
-        return (int)y;
-    }
 }
